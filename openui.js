@@ -1,5 +1,5 @@
 /**
- * Created by Administrator on 15-7-29.
+ * opuiui Created by Administrator on 15-7-29.
  */
 ;(function($,window,document,undefined){
 	//form check
