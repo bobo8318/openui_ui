@@ -1,2 +1,2 @@
 # openui_ui
-openuiJS
+openuiJS基于jquery的前端开发插件
