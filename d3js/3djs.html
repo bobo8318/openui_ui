@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>3djs</title>
+    <meta charset="utf-8" />
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+<body>
+<div id="svg"></div>
+
+<script type="text/javascript">
+	const dataset = [50,43,120,87,99,167,142];
+	const height = 400;
+	const width = 400;
+	const svg = d3.select("#svg").append("svg").attr("height",height).attr("width",width);
+	const padding = {top:20,left:20,right:20,bottom:20};
+	const rectStep = 35;//两个柱左边距离
+	const restWidth = 30;//柱实际宽度
+
+	const bar_update = svg.selectAll("rect").data(dataset);
+
+	bar_update.enter().append("rect").attr("fill","red").attr("x",(d,i)=>padding.left+i*rectStep).attr("y",(d,i)=>height-padding.bottom-d).attr("width",restWidth).attr("height",d=>d);
+	
+	const text = svg.selectAll("text").data(dataset).enter().append("text").attr("fill","#fff")
+					.attr("font-size","14px").attr("text-anchor","middle")
+					.attr("x",(d,i)=>padding.left+i*rectStep)
+					.attr("y",(d,i)=>height-padding.bottom-d)
+					.text(d=>d)
+					.attr("dx",restWidth/2)
+					.attr("dy","1em")
+</script>
+</body>
+</html>
